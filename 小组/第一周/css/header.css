@@ -1,0 +1,112 @@
+.top-nav {
+    background-color: #333;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    color: #b0b0b0;
+}
+
+.sep {
+    height: 40px;
+    line-height: 40px;
+    color: #424242;
+}
+
+.top-nav .container {
+    width: 1226px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-nav .container a {
+    padding: 0 4px;
+}
+
+.top-nav .container .right div {
+    float: left;
+}
+
+.top-nav .container .right .user {
+    margin-right: 20px
+}
+
+.top-nav .container .right .car {
+    background-color: #424242;
+    padding-right: 10px;
+}
+
+.top-nav .container .right .car::before {
+    content: '';
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url('../icon/car.png') no-repeat center;
+    background-size: 20px 20px;
+}
+
+
+.site-header {
+    height: 100px;
+}
+
+.site-header .container {
+    width: 1226px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.site-header .container .logo {
+    border: 0;
+    width: 56px;
+    height: 56px;
+    background: url(../icon/logo.png) no-repeat center;
+    background-size: 56px 56px;
+    cursor: pointer;
+}
+
+.site-header .container .nav-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 630px;
+    font-size: 16px;
+    margin-left: 110px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+.site-header .container .nav-item a {
+    display: block;
+}
+
+.site-header .container .search form {
+    height: 50px;
+    display: flex;
+}
+
+.site-header .container .search form .input {
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    width: 245px;
+    height: 50px;
+}
+
+.site-header .container .search form button {
+    background: url(../icon/btn.png) no-repeat;
+    background-size: 52px 50px;
+    display: inline-block;
+    width: 52px;
+    height: 50px;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}

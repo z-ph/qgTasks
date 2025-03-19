@@ -1,0 +1,139 @@
+
+.main {
+    width: 1226px;
+    height: 644px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 460px 170px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.main .box-top {
+    position: relative;
+    display: flex;
+}
+
+.main .box-top .nav-list {
+    width: 234px;
+    padding: 20px 0;
+    background: rgba(105, 101, 101, .6);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main .box-top .nav-list li {
+    padding-left: 30px;
+    height: 42px;
+    cursor: pointer;
+    line-height: 42px;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+}
+
+.main .box-top .nav-list li em {
+    height: 28px;
+}
+
+.main .box-top .nav-list li .icon::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: 13px;
+    background-image: url(../icon/right-white.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.main .box-top .nav-list li:hover {
+    background-color: rgb(255, 103, 0);
+}
+
+.main .box-top .img-container {
+    position: absolute;
+    z-index: -1;
+}
+
+.main .box-top .img-container a img {
+    width: 1226px;
+    height: 460px;
+    ;
+}
+
+.main .box-top .banner-box {
+    position: relative;
+    /* width:992px; */
+    flex-grow: 1;
+}
+
+.main .box-top .banner-box .left,
+.main .box-top .banner-box .right {
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.main .box-top .banner-box .left {
+    left: 0;
+    background: url(../icon/icon-slides.png) no-repeat -83px center/cover;
+}
+
+.main .box-top .banner-box .left:hover {
+    background-position: left center;
+}
+
+.main .box-top .banner-box .right:hover {
+    background-position: -42px center;
+}
+
+.main .box-top .banner-box .right {
+    right: 0;
+    background: url(../icon/icon-slides.png) no-repeat right center/cover;
+}
+
+
+.main .box-top .banner-box .dot-box {
+    width: 400px;
+    left: auto;
+    right: 30px;
+    bottom: 20px;
+    text-align: right;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.main .box-top .banner-box .dot-box .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    opacity: 1;
+    border-width: 2px;
+    border-style: solid;
+    border-image: initial;
+    border-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0 4px;
+}
+
+.main .box-top .banner-box .dot-box .dot:hover {
+    background: hsla(0, 0%, 100%, .4);
+    border-color: rgba(0, 0, 0, .4);
+}
+
+.main .box-top .banner-box .dot-box .dot.selected {
+    background: hsla(0, 0%, 100%, .4);
+    border-color: rgba(0, 0, 0, .4);
+}
