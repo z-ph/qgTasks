@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="todo-wrapper">
+        <div id="todo-app" class="todo-app">
+            <div class="container header ">
+                <div class="todo-input">
+                    <h1 class="title"><img src="https://todo.uiineed.com/assets/img/todo.svg" alt="" class="title-1">
+                        <div class="ani-vector"><span></span> <span></span></div>
+                        <div class="pendulums">
+                            <div class="pendulum">
+                                <div class="bar"></div>
+                                <div class="motion">
+                                    <div class="string"></div>
+                                    <div class="weight"></div>
+                                </div>
+                            </div>
+                            <div class="pendulum shadow">
+                                <div class="bar"></div>
+                                <div class="motion">
+                                    <div class="string"></div>
+                                    <div class="weight"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </h1>
+                    <div class="add-content-wrapper"><input type="text" rows="3" placeholder="新增待办事项..."
+                            class="add-content"> <!----> <button type="button" class="btn submit-btn">提交</button></div>
+                </div>
+            </div>
+            <div class="container main">
+                <div class="todo-list-box">
+                    <div class="bar-message"><!---->
+                        <div>
+                            <div class="bar-message-text">
+                                今日事今日毕，勿将今事待明日!.☕
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="empty-tips">
+                        <li> 添加你的第一个待办事项！📝</li>
+                        <li>食用方法💡：</li>
+                        <li>✔️ 所有提交操作支持Enter回车键提交</li>
+                        <li>✔️ 拖拽Todo上下移动可排序(仅支持PC)</li>
+                        <li>✔️ 双击上面的标语和 Todo 可进行编辑</li>
+                        <li>✔️ 右侧的小窗口是快捷操作哦</li>
+                        <li>🔒 所有的Todo数据存储在浏览器本地</li>
+                        <li>📝 支持下载和导入，导入追加到当前序列</li>
+                    </ul>
+                    <ul mode="in-out" class="todo-list">
+                        
+                    </ul>
+                </div>
+                <div class="footer side-bar">
+                    <div class="side-shortcut">
+                        <div class="shortcut-switch"><span class="shortcut-title">开✨</span> <span
+                                class="shortcut-name">快捷操作 </span></div>
+                    </div>
+                    <div class="todo-footer-box">
+                        <ul class="todo-func-list filter">
+                            <li><input type="button" value="全部" class="btn-small action-showAll selected"></li> <!---->
+                            <!----> <!---->
+                        </ul>
+                        <ul class="todo-func-list batch"><!----> <!----> <!----></ul>
+                        <ul class="todo-func-list datasave"><!---->
+                            <li><input value="导入(txt/json)" type="button" id="import" class="btn-small action-import">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <br>
+            <div class="nav">
+                <div class="about">
+                    <div class="info">
+                        <div class="info-ico" style="font-weight: normal;">
+                            关于我
+                        </div> <!---->
+                    </div>
+                </div>
+                <div class="language switch-language"><a href="https://todo.uiineed.com/" class="en">En</a>
+                    <span>/</span> <a href="javascript:;" target="_self" class="zh active">中</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/todo.js"></script>
+</body>
+
+</html>

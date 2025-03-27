@@ -78,15 +78,15 @@
     margin-left: 110px;
 }
 
-li {
-    display: flex;
-    align-items: center;
-}
-
 .site-header .container .nav-item a {
     display: block;
+    height:100px;
+    line-height: 100px;
+    padding:0 9.9px;
 }
-
+.site-header .container .nav-item a:hover{
+    color: #ff6700;
+}
 .site-header .container .search form {
     height: 50px;
     display: flex;
@@ -109,4 +109,25 @@ li {
     border: 0;
     padding: 0;
     cursor: pointer;
+}
+header .sub-nav{
+    height:0;
+    transition:all .5s ease;
+}
+header .sub-nav.show{
+    height:230px;
+    width:100%;
+}
+header .sub-nav-container{
+    position:relative;
+    width:100%;
+    overflow: hidden;
+}
+header .sub-nav.show:hover{
+    height:230px;
+    width:100%;
+}
+li {
+    display: flex;
+    align-items: center;
 }
