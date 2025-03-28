@@ -38,13 +38,18 @@
                             </div>
                         </div>
                     </h1>
-                    <div class="add-content-wrapper"><input type="text" rows="3" placeholder="新增待办事项..."
-                            class="add-content"> <!----> <button type="button" class="btn submit-btn">提交</button></div>
+                    <div class="add-content-wrapper">
+                        <form action="javascript:;">
+                            <input type="text" rows="3" placeholder="新增待办事项..." class="add-content">
+                            <button type="button" class="btn submit-btn">提交</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="container main">
                 <div class="todo-list-box">
-                    <div class="bar-message"><!---->
+                    <div class="bar-message">
+                        <input type="button" value="全部标为完成" class="btn btn-label btn-allFinish">
                         <div>
                             <div class="bar-message-text">
                                 今日事今日毕，勿将今事待明日!.☕
@@ -62,7 +67,7 @@
                         <li>📝 支持下载和导入，导入追加到当前序列</li>
                     </ul>
                     <ul mode="in-out" class="todo-list">
-                        
+
                     </ul>
                 </div>
                 <div class="footer side-bar">
@@ -72,11 +77,11 @@
                     </div>
                     <div class="todo-footer-box">
                         <ul class="todo-func-list filter">
-                            <li><input type="button" value="全部" class="btn-small action-showAll selected"></li> <!---->
-                            <!----> <!---->
+                            <li><input type="button" value="全部" class="btn-small action-showAll selected"></li> 
+                             
                         </ul>
-                        <ul class="todo-func-list batch"><!----> <!----> <!----></ul>
-                        <ul class="todo-func-list datasave"><!---->
+                        <ul class="todo-func-list batch">  </ul>
+                        <ul class="todo-func-list datasave">
                             <li><input value="导入(txt/json)" type="button" id="import" class="btn-small action-import">
                             </li>
                         </ul>
@@ -88,7 +93,7 @@
                     <div class="info">
                         <div class="info-ico" style="font-weight: normal;">
                             关于我
-                        </div> <!---->
+                        </div> 
                     </div>
                 </div>
                 <div class="language switch-language"><a href="https://todo.uiineed.com/" class="en">En</a>
