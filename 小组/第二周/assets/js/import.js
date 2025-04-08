@@ -25,7 +25,6 @@ function importJson() {
     reader.readAsText(file); // 读取文件内容
 }
 function bindRealFileBtn(){
-    console.log('bindRealFileBtn');
     const beautyBtn = document.querySelector('#import'); 
     const functionBtn = document.createElement('input');
     functionBtn.type = 'file';
@@ -34,7 +33,6 @@ function bindRealFileBtn(){
     beautyBtn.after(functionBtn);
     beautyBtn.addEventListener('click',()=>{
         functionBtn.click();
-        console.log('111')
     })
     functionBtn.addEventListener('change',()=>{
         importJson();

@@ -1,0 +1,35 @@
+.first{
+    display:flex;
+    flex-wrap:wrap;
+}
+.first>*{
+    height:100%;
+    border:1px solid blue;
+}
+.programs{
+    flex-grow: 3;
+    text-align: center;
+}
+.models{
+    flex-grow: 4;
+}
+.programs ul{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    padding-top:10px;
+    white-space: wrap;
+}
+.programs ul li{
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: 150px;
+    padding: 20px;
+    border:1px solid black;
+    border-radius: 8px;
+}
+
+.models{
+    display: flex;
+    flex-direction: column;
+}

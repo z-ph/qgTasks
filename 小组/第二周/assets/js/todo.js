@@ -85,7 +85,7 @@ function updateTodo(todoList) {
         const iconHidden = item.completed ? '' : 'hidden';
         if (!item.removed) {
             ulInnerHTML += `
-            <li data-delay="${index}" draggable="true" class="todo-item">
+            <li data-delay="${index}" draggable="true" class="todo-item animate">
                 <div class="todo-content ${completed}">
                     ${content}
                 </div>
@@ -155,6 +155,7 @@ function bindEvent(liList) {
             change(index);
         });
     }
+    if (liList.length === 0) return;
     const downloadBtn = document.querySelector('#download');
     const allDoneShortcut = document.querySelector('#todo-app > div.container.main > div.footer.side-bar > div.todo-footer-box > ul.todo-func-list.batch > li:nth-child(1) > input');
     const clearAllBtn = document.querySelector('#todo-app > div.container.main > div.footer.side-bar > div.todo-footer-box > ul.todo-func-list.batch > li:nth-child(2) > input');
@@ -203,8 +204,8 @@ function render() {
     bindEvent(liList);
 
 }
-function allDone(){
-    if(!confirm('Confirm to mark all as completed?'))return;
+function allDone() {
+    if (!confirm('Confirm to mark all as completed?')) return;
     doms.todos.forEach(item => {
         item.completed = true;
     });
@@ -219,9 +220,149 @@ function change(index) {
     render();
 }
 function clearAll() {
-    if(!confirm('Confirm to clear all?'))return;
+    if (!confirm('Confirm to clear all?')) return;
     doms.todos = [];
     save();
     render();
 }
+function templateToDom(template) {
+    // 创建一个临时的div元素
+    const tempDiv = document.createElement('div');
+    // 将模板字符串插入到div中
+    tempDiv.innerHTML = template;
+    // 返回div中的第一个子元素（即转换后的DOM元素）
+    return tempDiv.firstElementChild;
+}
 
+const animateVersion = {
+    add(value) {
+        if (value.trim() === '') return;
+        doms.todos.unshift({
+            id: doms.index++,
+            title: value,
+            completed: false,
+            removed: false,
+        });
+        save();
+        this.render(doms.index - 1);
+
+    },
+    updateTodo(todoList) {
+        if (todoList.length === 0) return;
+        // 渲染todos
+        const ulInnerHTML = (index, content, completed, btnStatus, iconHidden, editHidden) => {
+            return `
+        <li data-delay="${index}" draggable="true" class="todo-item">
+            <div class="todo-content ${completed}">
+                ${content}
+            </div>
+            <div class="todo-btn ${btnStatus}">
+                <img src="./assets/icon/check.svg" class="${iconHidden}" alt="完成">
+            </div>
+            <div class="todo-btn btn-delete">
+                <img src="./assets/icon/del.svg"alt="删除">
+            </div>
+            <div class="edit-todo-wrapper ${editHidden}">
+                <input type="text" value="${content}" class="edit-todo">
+                <div class="todo-btn btn-edit-submit"><img src="./assets/icon/upArrow.svg" alt="提交"></div>
+            </div>
+        </li>`
+        }
+        const index = doms.todos.length - 1;
+        const item = doms.todos[index];
+        const content = item.title;
+        const btnStatus = item.completed ? 'btn-unfinish' : 'btn-finish';
+        const editHidden = doms.notHiddenIdList.includes(doms.todos[index].id) ? '' : 'hidden';
+        const completed = item.completed ? 'completed' : '';
+        const iconHidden = item.completed ? '' : 'hidden';
+        const template = ulInnerHTML(index, content, completed, btnStatus, iconHidden, editHidden);
+        const li = templateToDom(template);
+        console.log(li);
+        todoList.appendChild(li);
+    },
+    bindEvent(liList) {
+        if (liList.length === 0) return;
+        //获取当前li元素和todo对象
+        index = liList.length - 1;
+        const li = liList[index];
+        const todo = doms.todos[index];
+        const id = todo.id;
+        const contentWrapper = li.querySelector('.todo-content');
+        const editWrapper = li.querySelector('.edit-todo-wrapper');
+        const delBtn = li.querySelector('.btn-delete');
+        const editInput = li.querySelector('.edit-todo');
+        const btnEditSubmit = li.querySelector('.btn-edit-submit');
+        const btnFinish = li.querySelector('.btn-finish');
+        const btnUnfinish = li.querySelector('.btn-unfinish');
+        const btn = btnFinish || btnUnfinish;
+        //给contentwrapper绑定双击事件，双击弹出修改框
+        contentWrapper.addEventListener('dblclick', () => {
+            editWrapper.classList.remove('hidden');
+            doms.notHiddenIdList.push(id);
+            editInput.focus();
+            editInput.setSelectionRange(editInput.value.length, editInput.value.length); // 将光标移动到末尾
+        });
+
+        //给当前li的删除按钮绑定点击事件，点击删除
+        delBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            remove(index);
+        });
+
+        //给编辑框绑定input事件，并与li的内容绑定同步
+        editInput.addEventListener('input', (e) => {
+            e.stopPropagation();
+            //同步数据
+            todo.title = editInput.value;
+            contentWrapper.textContent = editInput.value;
+            save();
+        });
+
+        //给编辑框绑定收起事件
+        btnEditSubmit.addEventListener('click', (e) => {
+            e.stopPropagation();
+            editWrapper.classList.add('hidden');
+        });
+
+        // 给圆框添加点击事件，标记完成
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            change(index);
+        });
+        const downloadBtn = document.querySelector('#download');
+        const allDoneShortcut = document.querySelector('#todo-app > div.container.main > div.footer.side-bar > div.todo-footer-box > ul.todo-func-list.batch > li:nth-child(1) > input');
+        const clearAllBtn = document.querySelector('#todo-app > div.container.main > div.footer.side-bar > div.todo-footer-box > ul.todo-func-list.batch > li:nth-child(2) > input');
+        //下列与li元素无关
+        //给导出按钮绑定事件
+        downloadBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            download();
+        });
+        //给全部完成的侧边快捷键绑定事件
+        allDoneShortcut.addEventListener('click', (e) => {
+            e.stopPropagation();
+            allDone();
+        });
+        //给导入按钮绑定事件
+        bindRealFileBtn();
+        //清楚全部的侧边快捷键绑定事件
+        clearAllBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearAll();
+        });
+
+    },
+    render(index) {
+        clearEmptyTip();
+        sideBarBtn();
+
+        const todoList = document.querySelector('.todo-list');
+        this.updateTodo(todoList);
+        setTimeout(() => {
+            todoList[index].classList.add('animate');
+
+        }, 2000);
+        const liList = document.querySelectorAll('#todo-app > div.container.main > div.todo-list-box > ul.todo-list > li');
+        this.bindEvent(liList);
+    },
+}

@@ -1766,3 +1766,15 @@ span.shortcut-name {
 .hidden{
     display:none;
 }
+/* 定义过渡动画 */
+.todo-item {
+    opacity: 0; /* 初始状态：完全透明 */
+    transform: translateY(-20px); /* 初始状态：向上偏移 */
+    transition: opacity 1s ease, transform 1s ease; /* 过渡效果 */
+}
+
+/* 添加类名后触发的动画 */
+.todo-item.animate {
+    opacity: 1; /* 最终状态：完全不透明 */
+    transform: translateY(0); /* 最终状态：回到原位 */
+}
