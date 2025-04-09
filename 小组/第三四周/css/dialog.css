@@ -1,0 +1,35 @@
+dialog {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+form {
+    width: 500px;
+    height: 300px;
+}
+
+label {
+    display: block;
+}
+
+dialog a[role="button"] {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #999;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+}
+
+label.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

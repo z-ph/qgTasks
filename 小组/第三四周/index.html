@@ -1,24 +1,89 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ai models</title>
-    <!-- <script src="https://unpkg.com/vue@3"></script> -->
-    <link rel="stylesheet" href="./src/css/modules.css" />
-    <script src="./vue/vue3.5.js"></script>
-  </head>
-  <body>
-    <div class="app"></div>
+<html>
 
-        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ai workspace</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/modelModules.css">
+    <link rel="stylesheet" href="css/layer.css">
+    <link rel="stylesheet" href="css/dialog.css">
+</head>
 
-    <script type="module">
-      import App from "./src/components/app.js";
-      Vue.createApp(App).mount(".app");
-    </script>
-    <script>
+<body>
+    <div class="app">
+        <div class="model-modules flex-column">
+            <section class="header flex-row flex-around">
+                <h1 class="title">模型库</h1>
+                <div class="del">
+                    <svg t="1744034586401" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2804" width="200" height="200">
+                        <path d="M371.3 376.1H400V830h-28.7zM497.6 376.1h28.7V830h-28.7zM624 376.1h28.7V830H624z"
+                            fill="#231815" p-id="2805"></path>
+                        <path
+                            d="M834.7 188.1H662.2c-17.1-67.7-78.7-116.2-149.1-116.2-70.9 0-132 48.3-149.1 116.2H189.3v109.8H257v654.2h510.2V297.9h67.7V188.1z m-321.6-87.5c54.8 0 103.1 36.1 119.3 87.4h-44c-12.2-30.4-42.1-51.4-75.8-51.4-33.9 0-63.5 20.9-75.7 51.4h-43c16.1-51.4 64-87.4 119.2-87.4z m42.6 87.5h-86.3c9.6-13.7 25.4-22.6 43.2-22.6 17.5-0.1 33.4 8.8 43.1 22.6z m182.6 735.3H285.7V297.9h452.7v625.5zM806 269.1H218v-52.3h588v52.3z"
+                            fill="#231815" p-id="2806"></path>
+                    </svg>
 
-    </script>
-  </body>
+                </div>
+            </section>
+            <section class="btn-container flex-around">
+                <a class="addLayer">添加层级</a>
+                <a class="uploadModel">上传</a>
+            </section>
+            <section class="model-container">
+                
+            </section>
+        </div>
+        <div class="card-container ">
+        </div>
+    </div>
+    <dialog id="inputInfo">
+        <form method="dialog" class="flex-column center">
+            <label for="weight">
+                <h2>权重</h2>
+                <input autocomplete="off" type="text" id="weight">
+            </label>
+            <label for="demand">
+                <h2>需求</h2>
+                <input autocomplete="off" type="text" id="demand">
+            </label>
+            <label for="" class="btn-container">
+                <a role="button" class="confirm">confirm</a>
+                <a role="button" class="cancel">cancel</a>
+            </label>
+
+        </form>
+    </dialog>
+    <dialog id="addModel">
+        <form method="dialog" class="flex-column center">
+            <label for="name">
+                <h2>name</h2>
+                <input autocomplete="off" type="text" id="name">
+            </label>
+            <label for="url">
+                <h2>url</h2>
+                <input autocomplete="off" type="text" id="url">
+            </label>
+            <label for="desc">
+                <h2>简介</h2>
+                <input autocomplete="off" type="text" id="desc">
+            </label>
+            <label for="" class="btn-container">
+                <a role="button" class="confirm">confirm</a>
+                <a role="button" class="cancel">cancel</a>
+            </label>
+
+        </form>
+    </dialog>
+    <script src="./js/data.js"></script>
+    <script src="./js/draggedModelRender.js"></script>
+    <script src="./js/renderModelModules.js"></script>
+    <script src="./js/drag.js"></script>
+    <script src="./js/dialog.js"></script>
+    <!-- <script src="./js/test.js"></script> -->
+</body>
+
 </html>
