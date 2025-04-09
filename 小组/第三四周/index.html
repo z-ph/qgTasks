@@ -4,19 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ai workspace</title>
+    <title>ai model workspace</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/modelModules.css">
-    <link rel="stylesheet" href="css/layer.css">
     <link rel="stylesheet" href="css/dialog.css">
+    <link rel="stylesheet" href="css/layerListArea.css">
+    <link rel="stylesheet" href="css/modellibraryArea.css">
+    <style>
+        .empty{
+            display: inline-block;
+            width: 200px;
+            height: 60px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="app">
-        <div class="model-modules flex-column">
-            <section class="header flex-row flex-around">
-                <h1 class="title">模型库</h1>
+        <section class="model-library">
+            <header class="title">
+                <h1>模型库</h1>
                 <div class="del">
                     <svg t="1744034586401" class="icon" viewBox="0 0 1024 1024" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" p-id="2804" width="200" height="200">
@@ -28,20 +35,19 @@
                     </svg>
 
                 </div>
-            </section>
-            <section class="btn-container flex-around">
-                <a class="addLayer">添加层级</a>
-                <a class="uploadModel">上传</a>
-            </section>
-            <section class="model-container">
-                
-            </section>
-        </div>
-        <div class="card-container ">
-        </div>
+            </header>
+            <div class="buttons">
+                <button class="add-new-layer">添加层级</button>
+                <button class="add-new-model-in-library">上传模型</button>
+            </div>
+            <div class="model-list"></div>
+        </section>
+        <section class="layer-list-container">
+            
+        </section>
     </div>
-    <dialog id="inputInfo">
-        <form method="dialog" class="flex-column center">
+    <dialog id="input-layer-model-info">
+        <form method="dialog" action="javascript:;" class="flex-column center">
             <label for="weight">
                 <h2>权重</h2>
                 <input autocomplete="off" type="text" id="weight">
@@ -51,14 +57,13 @@
                 <input autocomplete="off" type="text" id="demand">
             </label>
             <label for="" class="btn-container">
-                <a role="button" class="confirm">confirm</a>
-                <a role="button" class="cancel">cancel</a>
+                <a role="button" tabindex="0" class="confirm">confirm</a>
+                <a role="button" tabindex="0" class="cancel">cancel</a>
             </label>
-
         </form>
     </dialog>
-    <dialog id="addModel">
-        <form method="dialog" class="flex-column center">
+    <dialog id="add-new-model-in-library">
+        <form method="dialog" action="javascript:;" class="flex-column center">
             <label for="name">
                 <h2>name</h2>
                 <input autocomplete="off" type="text" id="name">
@@ -72,18 +77,37 @@
                 <input autocomplete="off" type="text" id="desc">
             </label>
             <label for="" class="btn-container">
-                <a role="button" class="confirm">confirm</a>
-                <a role="button" class="cancel">cancel</a>
+                <a role="button" tabindex="0" class="confirm">confirm</a>
+                <a role="button" tabindex="0" class="cancel">cancel</a>
             </label>
-
         </form>
     </dialog>
-    <script src="./js/data.js"></script>
-    <script src="./js/draggedModelRender.js"></script>
-    <script src="./js/renderModelModules.js"></script>
-    <script src="./js/drag.js"></script>
-    <script src="./js/dialog.js"></script>
-    <!-- <script src="./js/test.js"></script> -->
+    <script>
+        //给所有的a元素绑定enter事件
+        document.querySelectorAll("a").forEach(a => {
+            a.addEventListener("keydown", (e) => {
+                // 阻止默认事件！！！一定要加，不然会出问题，不知道为什么
+                e.preventDefault();
+                if (e.key === "Enter") {
+                    // e.target.click();
+                    // console.log(e.target.click)
+                    e.target.click();
+                }
+            })
+        })  
+    </script>
+    <script src="js/data.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/renderModellibrary.js"></script>
+    <script src="js/renderLayerListContainer.js"></script>
+    <script src="js/addNewModel.js"></script>
+    <script src="js/addNewLayer.js"></script>
+    <script src="js/addLayerModelInfo.js"></script>
+    <script src="js/dragEventHandle.js"></script>
+    <script>
+
+
+    </script>
 </body>
 
 </html>

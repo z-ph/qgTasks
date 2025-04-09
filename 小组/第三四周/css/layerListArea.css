@@ -1,0 +1,36 @@
+.card-container {
+    flex: 1;
+}
+
+.card-container .card {
+    height: auto;
+}
+
+.model-container {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.model-container .empty {
+    /* border:1px solid; */
+    width: 200px;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.empty.shadow {
+    box-shadow: 0 2px rgba(0, 0, 0, .1), 1px 0 rgba(0, 0, 0, .1), -1px 0 rgba(0, 0, 0, .1), 0 -1px rgba(0, 0, 0, .1);
+}
+
+.model.added {
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5px 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: blue;
+    color: #fff;
+}
