@@ -9,6 +9,11 @@ const public = {
         //queryModelInfo
         queryModelInfoDialog: document.querySelector('#query-model-info'),
 
+
+        //uploadDataDialog
+        uploadDataDialog: document.querySelector('#upload-data-dialog'),
+        
+
     },
     layerListContainer: document.querySelector('.layer-list-container'),
     del:document.querySelector('.del'),

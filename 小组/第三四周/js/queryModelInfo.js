@@ -1,4 +1,7 @@
 renderlibrary.modelListContainer.addEventListener('click', e => {
+    if (!e.target.classList.contains('model')) {
+        return;
+    }
     const dialog = public.dialogs.queryModelInfoDialog
     const modelId = e.target.getAttribute('data-id')
     const model = data.modelList.find(item => item.id == modelId)

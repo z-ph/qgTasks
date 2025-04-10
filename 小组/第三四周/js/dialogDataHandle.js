@@ -83,3 +83,23 @@ public.del.addEventListener('drop', e => {
     //保存数据
     methods.saveData()
 })
+
+
+
+public.dialogs.uploadDataDialog.addEventListener('click', async e => {
+    const dialog = public.dialogs.uploadDataDialog
+    if (e.target.classList.contains('close')||e.target.parentNode.classList.contains('close')||e.target.classList.contains('cancel')) {
+        dialog.close()
+    }
+    if (e.target.classList.contains('run')) {
+        const inputData = await uploadData.getInputData()
+        data = {
+            ...data,
+            ...inputData
+        }
+        methods.saveData()
+        dialog.close()
+        alert('数据上传成功(只做了映射，映射的数据保存在localStorage中以及全局变量transformedData中)')
+    }
+})
+

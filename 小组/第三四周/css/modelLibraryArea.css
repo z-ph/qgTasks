@@ -1,6 +1,7 @@
 .model-library{
     border:1px solid #333;
     flex:0 0 200px;
+    background-color: #fff;
 }
 .title{
     padding:10px;

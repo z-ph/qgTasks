@@ -21,7 +21,7 @@ renderLayer.createLayerCardElem = rank => `
  * @returns {string} html字符串
  */
 renderLayer.createLayerModelElem = (model) => `
-        <div class="model added" >${model.name}</div>
+        <div class="model added" draggable="true" >${model.name}</div>
 `
 /**
  * 创建dragenter时，有阴影的空白节点

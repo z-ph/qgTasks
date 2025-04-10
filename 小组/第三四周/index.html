@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/dialog.css">
     <link rel="stylesheet" href="css/layerListArea.css">
     <link rel="stylesheet" href="css/modellibraryArea.css">
+    <link rel="stylesheet" href="css/program.css">
     <style>
         .empty{
             display: inline-block;
@@ -21,6 +22,17 @@
 
 <body>
     <div class="app flex-row">
+        <section class="program-container flex-column">
+            <header class="top-btn flex-around">
+                <button class="add-program">+新建项目</button>
+                <button class="query-result">查看结果</button>
+            </header>
+            <div class="program-list flex-column">
+                <div class="program card">视网膜</div>
+                <div class="program card">视网膜</div>
+                <div class="program card">视网膜</div>
+            </div>
+        </section>
         <section class="model-library flex-column">
             <header class="title flex-around">
                 <h1>模型库</h1>
@@ -38,7 +50,8 @@
             </header>
             <div class="buttons flex-around">
                 <button class="add-new-layer">添加层级</button>
-                <button class="add-new-model-in-library">上传模型</button>
+                <button class="upload-data">上传</button>
+                <button class="add-new-model-in-library">添加模型</button>
             </div>
             <div class="model-list"></div>
         </section>
@@ -53,7 +66,7 @@
                 <input autocomplete="off" type="number" id="weight">
             </label>
             <label for="prompt">
-                <h2>需求</h2>
+                <h2>提示词</h2>
                 <input autocomplete="off" type="text" id="promptWords">
             </label>
             <label for="" class="btn-container">
@@ -97,6 +110,44 @@
         </div>
         <button class="close">close</button>
     </dialog>
+    <dialog id="upload-data-dialog">
+        <form  action="javascript:;" class="flex-column">
+            <header class="header flex-between">
+                <div class="left flex-row">
+                    <div class="close center">
+                        <svg t="1744292942533" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2577"
+                            width="200" height="200">
+                            <path
+                                d="M916.336 917.44a15.952 15.952 0 0 1-11.312-4.688L96.368 104.08a15.984 15.984 0 1 1 22.624-22.624l808.656 808.672a15.984 15.984 0 0 1-11.312 27.312z"
+                                fill="" p-id="2578"></path>
+                            <path
+                                d="M107.68 917.44a15.984 15.984 0 0 1-11.312-27.312L905.024 81.456a15.984 15.984 0 1 1 22.624 22.624L118.992 912.752a15.92 15.92 0 0 1-11.312 4.688z"
+                                fill="" p-id="2579"></path>
+                        </svg>
+                    </div>
+                    <h2>运行项目</h2>
+                </div>
+                <div class="right">
+                    <button class="cancel">取消</button>
+                    <button class="run">运行</button>
+                </div>
+            </header>
+            <section>
+                <label for="">
+                    <div>项目名称</div>
+                    <input autocomplete="off" type="text" id="projectName">
+                </label>
+                <label for="">
+                    <div>请输入文本</div>
+                    <input type="text" id="content">
+                </label>
+                <label for="">
+                    <div>上传图片</div>
+                    <input type="file" id="image">
+                </label>
+            </section>
+        </form>
+    </dialog>
     <script>
         //给所有的a元素绑定enter事件
         document.querySelectorAll("a").forEach(a => {
@@ -122,6 +173,7 @@
     <script src="js/dialogDataHandle.js"></script>
     <script src="js/emptyShadow.js"></script>
     <script src="js/queryModelInfo.js"></script>
+    <script src="js/uploadData.js"></script>
     <script>
 
 

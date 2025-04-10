@@ -10,7 +10,7 @@
     height: 100%;
     display: flex;
     align-items: stretch;
-    background-color: #fff;
+    background-color: #cfcece;
 }
 
 .show {
@@ -33,16 +33,22 @@
     justify-content: space-around;
     align-items: center;
 }
-
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 a {
     cursor: pointer;
 }
 
 .card {
+    background-color: #fff;
     padding: 10px;
-    border: 1px solid;
+    border: 1px solid #999;
     border-radius: 10px;
     margin: 10px;
+    box-shadow: 0 2px rgba(0, 0, 0, .1), 1px 0 rgba(0, 0, 0, .1), -1px 0 rgba(0, 0, 0, .1), 0 -1px rgba(0, 0, 0, .1);
 }
 [draggable] {
     will-change: transform;

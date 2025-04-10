@@ -1,16 +1,18 @@
-if (localStorage.getItem('data')) {
-    data = JSON.parse(localStorage.getItem('data'))
+if (localStorage.getItem('originalData')) {
+    data = JSON.parse(localStorage.getItem('originalData'))
 }
 else {
     data = {
         modelList: [],
-        layerList: []
+        layerList: [],
+        image: '',
+        content: '',
     }
 }
 const methods = {}
 //保存数据
 methods.saveData = () => {
-    localStorage.setItem('data', JSON.stringify(data))
+    localStorage.setItem('originalData', JSON.stringify(data))
     localStorage.setItem('transformedData', JSON.stringify(methods.transformData()))
 }
 //将LayerList里的modelList装换成要求的格式
@@ -39,11 +41,12 @@ methods.transformModelList = () => {
 methods.transformData = () => {
     const modelList = methods.transformModelList()
     return {
-        image: '',
-        content: '',
+        image: data.imag,
+        content: data.content,
         modelList:modelList,
     }
 }
-methods.saveData()
+const transformedData = methods.transformData()
+
 
 

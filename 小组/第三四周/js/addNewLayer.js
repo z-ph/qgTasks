@@ -9,5 +9,6 @@ addNewLayer.addLayerBtn.onclick = () => {
         modelList: [],
     })
     renderLayer.render()
+    methods.saveData()
 }
 

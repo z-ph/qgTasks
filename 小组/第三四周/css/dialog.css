@@ -8,8 +8,8 @@ dialog {
 }
 
 form {
-    width:auto;
-    padding:20px 40px;
+    width: auto;
+    padding: 20px 40px;
     align-items: stretch;
     justify-content: space-around;
 }
@@ -22,19 +22,20 @@ dialog button {
     display: inline-block;
     box-sizing: border-box;
     height: 40px;
-    padding:5px 10px;
+    padding: 5px 10px;
     border-radius: 20px;
     background-color: transparent;
     color: #999999;
-    border:2px solid;
+    border: 2px solid;
     cursor: pointer;
     text-align: center;
-    margin:10px 5px;
+    margin: 10px 5px;
 }
 
-dialog input{
+dialog input {
     width: 100%;
 }
+
 label.btn-container {
     display: flex;
     justify-content: flex-end;
@@ -42,16 +43,28 @@ label.btn-container {
 }
 
 
-#query-model-info h2,#query-model-info p{
+#query-model-info h2,
+#query-model-info p {
     display: inline-block;
 }
-#query-model-info{
-    padding:20px;
-    padding-bottom:60px;
+
+#query-model-info {
+    padding: 20px;
+    padding-bottom: 60px;
     position: relative;
 }
-#query-model-info .close{
+
+#query-model-info .close {
     position: absolute;
     bottom: 20px;
     right: 30px;
+}
+
+#upload-data-dialog .close svg {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 8px;
+    top: 11px;
+    cursor: pointer;
 }
