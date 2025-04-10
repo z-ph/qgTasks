@@ -1,5 +1,5 @@
 dialog {
-
+    width: 500px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -8,28 +8,50 @@ dialog {
 }
 
 form {
-    width: 500px;
-    height: 300px;
+    width:auto;
+    padding:20px 40px;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 label {
     display: block;
 }
 
-dialog a[role="button"] {
+dialog button {
     display: inline-block;
-    width: 60px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #999;
-    color: #fff;
+    box-sizing: border-box;
+    height: 40px;
+    padding:5px 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #999999;
+    border:2px solid;
     cursor: pointer;
     text-align: center;
-    line-height: 30px;
+    margin:10px 5px;
 }
 
+dialog input{
+    width: 100%;
+}
 label.btn-container {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+
+
+#query-model-info h2,#query-model-info p{
+    display: inline-block;
+}
+#query-model-info{
+    padding:20px;
+    padding-bottom:60px;
+    position: relative;
+}
+#query-model-info .close{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
 }

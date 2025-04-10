@@ -17,8 +17,8 @@ addLayerModelInfo.layerListContainer.onclick = e => {
         if (data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].weight) {
             public.dialogs.layerModelInfoInputNodeList[0].value = data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].weight
         }
-        if (data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].demand) {
-            public.dialogs.layerModelInfoInputNodeList[1].value = data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].demand
+        if (data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].prompt) {
+            public.dialogs.layerModelInfoInputNodeList[1].value = data.layerList[addLayerModelInfo.layerIndex].modelList[addLayerModelInfo.modelIndex].prompt
         }
         dialog.showModal()
     }

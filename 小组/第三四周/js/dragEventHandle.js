@@ -13,11 +13,21 @@ public.layerListContainer.ondragover = (e) => {
 //拖拽到layerList
 public.layerListContainer.ondrop = (e) => {
     if (e.target.classList.contains('empty')) {
+        //判断是不是模型dragging,不是则不做处理
+        if (!dragEventHandel.draggingItem) {
+            return
+        }
         //修改数据
-        const id = dragEventHandel.draggingItem.getAttribute('data-id')
-        const index = e.target.parentNode.parentNode.getAttribute('data-rank') - 1
-        const model = data.modelList.filter(item => item.id == id)[0]
-        data.layerList[index].modelList.push(model)
+        const modelId = dragEventHandel.draggingItem.getAttribute('data-id')
+        const layerIndex = e.target.parentNode.parentNode.getAttribute('data-rank') - 1
+        const model = data.modelList.filter(item => item.id == modelId)[0]
+        const layerModel = {
+            ...model,
+            weight: null,
+            prompt:null,
+        }
+        data.layerList[layerIndex].modelList.push(layerModel)
+        dragEventHandel.draggingItem = null
         //渲染修改后的数据
         renderLayer.render()
     }

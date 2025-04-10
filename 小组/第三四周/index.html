@@ -20,11 +20,11 @@
 </head>
 
 <body>
-    <div class="app">
-        <section class="model-library">
-            <header class="title">
+    <div class="app flex-row">
+        <section class="model-library flex-column">
+            <header class="title flex-around">
                 <h1>模型库</h1>
-                <div class="del">
+                <div class="del center">
                     <svg t="1744034586401" class="icon" viewBox="0 0 1024 1024" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" p-id="2804" width="200" height="200">
                         <path d="M371.3 376.1H400V830h-28.7zM497.6 376.1h28.7V830h-28.7zM624 376.1h28.7V830H624z"
@@ -36,7 +36,7 @@
 
                 </div>
             </header>
-            <div class="buttons">
+            <div class="buttons flex-around">
                 <button class="add-new-layer">添加层级</button>
                 <button class="add-new-model-in-library">上传模型</button>
             </div>
@@ -47,23 +47,23 @@
         </section>
     </div>
     <dialog id="input-layer-model-info">
-        <form method="dialog" action="javascript:;" class="flex-column center">
+        <form method="dialog" action="javascript:;" class="flex-column">
             <label for="weight">
                 <h2>权重</h2>
-                <input autocomplete="off" type="text" id="weight">
+                <input autocomplete="off" type="number" id="weight">
             </label>
-            <label for="demand">
+            <label for="prompt">
                 <h2>需求</h2>
-                <input autocomplete="off" type="text" id="demand">
+                <input autocomplete="off" type="text" id="promptWords">
             </label>
             <label for="" class="btn-container">
-                <a role="button" tabindex="0" class="confirm">confirm</a>
-                <a role="button" tabindex="0" class="cancel">cancel</a>
+                <button class="confirm">confirm</button>
+                <button class="cancel">cancel</button>
             </label>
         </form>
     </dialog>
     <dialog id="add-new-model-in-library">
-        <form method="dialog" action="javascript:;" class="flex-column center">
+        <form method="dialog" action="javascript:;" class="flex-column">
             <label for="name">
                 <h2>name</h2>
                 <input autocomplete="off" type="text" id="name">
@@ -77,10 +77,25 @@
                 <input autocomplete="off" type="text" id="desc">
             </label>
             <label for="" class="btn-container">
-                <a role="button" tabindex="0" class="confirm">confirm</a>
-                <a role="button" tabindex="0" class="cancel">cancel</a>
+                <button class="confirm">confirm</button>
+                <button class="cancel">cancel</button>
             </label>
         </form>
+    </dialog>
+    <dialog id="query-model-info">
+        <div>
+            <h2>名称:</h2>
+            <p class="name"></p>
+        </div>
+        <div>
+            <h2>url:</h2>
+            <p class="url"></p>
+        </div>
+        <div>
+            <h2>简介:</h2>
+            <p class="desc"></p>
+        </div>
+        <button class="close">close</button>
     </dialog>
     <script>
         //给所有的a元素绑定enter事件
@@ -104,6 +119,9 @@
     <script src="js/addNewLayer.js"></script>
     <script src="js/addLayerModelInfo.js"></script>
     <script src="js/dragEventHandle.js"></script>
+    <script src="js/dialogDataHandle.js"></script>
+    <script src="js/emptyShadow.js"></script>
+    <script src="js/queryModelInfo.js"></script>
     <script>
 
 
